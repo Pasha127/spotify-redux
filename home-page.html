@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="icon" type="image/x-icon" href="./spotify_icon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2694a4f664.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <div class="spinnerContainer"> 
+        <div class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div>
+        <main class="main-container d-flex flex-row w-100 ">
+            <div class="page-container">
+                <div class="container d-flex p-0 m-0 full position-relative">
+                    <div class="container navLimiter p-0 m-0 side position-sticky ">
+                        <div class="logo col-10">
+                            <a href="./home-page.html"><img class="full" src="data:image/png;base64,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" alt="the logo"></a>
+                        </div>
+                        <div class="container col-12 d-flex py-1">
+                            <a href="./home-page.html"><svg xmlns="http://www.w3.org/2000/svg"  width="40" height="40" fill="white" class="bi bi-house-door-fill p-1" viewBox="0 0 16 16">
+                                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                              </svg></a>
+                              <span ><strong> <a href="home-page.html" style="color:#ebebeb;">Home</a> </strong></span>
+                        </div>
+                        <div class="container  col-12 d-flex py-1 searchBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-search p-1" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                              </svg>
+                              <span> <strong>Search</strong></span>
+                        </div >
+                        <div class="px-2">
+                            <div class="container  col-12 py-1 px-1 searchFieldContainer flex-row d-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-search p-1" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                  </svg>
+                                <input class="searchField">
+
+                            </div>
+                        </div>
+                        <div class="container col-12 d-flex py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-collection p-1" viewBox="0 0 16 16">
+                                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+                              </svg>
+                              <span><strong>Your Library</strong></span>
+                        </div>
+                       
+                        <div class="container col-12 d-flex py-1 mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus bg-white" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                              <span><strong>Create Playlist</strong></span>
+                        </div>
+                        <div class="container col-12 d-flex py-1">
+                            <p class="heart d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill align-self-center " viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                              </svg>
+                            </p>
+                              <span class=""><strong>Liked Songs</strong></span>
+                        </div>
+                        <div class="line"></div>
+                        <div class="container songs mt-4">
+                            <p class="d-block sideRec" >Funky Heavy Bluesy</p>
+                            <p class="d-block sideRec" >Your Top Songs 2020</p>
+                            <p class="d-block sideRec" >In Love With You </p>
+                            <p class="d-block sideRec" >This Is Rod Stewart</p>
+                            <p class="d-block sideRec" > Young Thug </p>                            
+                            <p class="d-block sideRec" >Palleggio</p>
+                            <p class="d-block sideRec" >June</p>
+                            <p class="d-block sideRec" >Halloween</p>
+                            <p class="d-block sideRec" >Birthday Party</p>
+                            <p class="d-block sideRec" >Metal Ballads</p>
+                            <p class="d-block sideRec" >Spice Girls</p>
+                            <p class="d-block sideRec" >Jazz Classics</p>
+                            <p class="d-block sideRec" >Bach</p>
+                            <p class="d-block sideRec" >Handel</p>
+                            <p class="d-block sideRec" >The Hu</p>
+                            <p class="d-block sideRec" >The Beatles</p>
+                            <p class="d-block sideRec" >Chill</p>
+                            <p class="d-block sideRec" >Breakup</p>
+                            <p class="d-block sideRec" >Love</p>
+                            <p class="d-block sideRec" >The Wiggles</p>
+                            <p class="d-block sideRec" >Blue Man Group</p>
+                            <p class="d-block sideRec" >Rock</p>
+                            <p class="d-block sideRec" >Synth</p>
+                            <p class="d-block sideRec" >Funk</p>
+                            <p class="d-block sideRec" >Mellow</p>
+                            <p class="d-block sideRec" >Retro</p>
+                            <p class="d-block sideRec" >Party</p>
+                           
+                        </div>
+                        <div class="container col-12 d-flex py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                              </svg>
+                              <a href="https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_US&gl=US" class=""><strong>Install App</strong></a>
+                        </div>
+            
+                        
+                    </div>
+                    
+                    <div class="content-container w-100 ">
+                        <nav class="navbar justify-content-between navbar-transparent">
+                            <form class="form-inline mr-auto">
+                              <button class="btn btn-circle btn-sm bg-dark btn-outline-secondary mr-5" type="button"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                  </svg>
+                            </button>
+                              <button class="btn btn-circle  bg-dark btn-outline-secondary" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                  </svg>
+                              </button>
+                            </form>
+                           
+                        </nav>
+                        <div class="small-suggestion-container flex-column pl-4">
+                            <h2 class="section-header mt-5 ">Good Morning</h2>
+                            <div class="container-fluid smallCardsArea p-0 m-0">
+                            <div class="buffer"><div class=" d-flex  smallCardsContainer1"></div> </div>
+                            <div class="buffer"><div class=" d-flex  smallCardsContainer2"></div> </div>
+                          
+                            
+                        </div>
+                            <h2 class="section-header mt-5"> Recently played</h2>                           
+                            <div class="row  my-4 cardContainer1">
+                                <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                    <div class="card spotify-light-bg p-3" style="width: 12rem; height: 18rem;">
+                                        <div class="hoverPlayButton"><div class="buttonTriangle"></div></div>
+                                        <img src="https://cdns-images.dzcdn.net/images/cover/9a20f8b2547cbb74635539c219de3a84/500x500.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body p-0  bg-black">
+                                            
+                                            <h5 class="card-title text-truncate mb-1 pt-2">Playlist name</h5>
+                                            <p class="card-text">Some quick example of text that is too long.</p>                                              
+                                        </div>
+                                    </div>
+                                </div> -->
+                                </div>
+                                <h2 class="section-header mt-5"> Things to Try</h2>  
+                                <div class="row  my-4 cardContainer2"></div>
+                                <div class="spacer">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>                                  
+                                    
+                                </div>
+                            </div>
+                        <div class="large-suggestion-container">
+                            <div class="recently-played-container">
+            
+                            </div>
+                            <div class="to-try-container">
+            
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+            
+    
+        </main>
+        <div class="userDataContainer">   
+           <img class="userImg" src="https://miro.medium.com/max/700/1*hFwwQAW45673VGKrMPE2qQ.png">
+            <div class="userName">TestUser</div>         
+
+        </div>
+        <div class="trackbar d-flex justify-content-center align-items-center flex-column">
+            <div class="albumInfo">
+                <img class="playerArt" src="https://cdns-images.dzcdn.net/images/cover/9a20f8b2547cbb74635539c219de3a84/500x500.jpg" alt="album art">
+                <div class="albumInfoText">
+                    <p class="albumInfoTitle">Another One Bites The Dust </p>
+                    <p class="albumInfoArtist">Queen</p>
+                    <p class="albumInfoLike"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi likeBtnF d-none bi-heart-fill align-self-center " viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart  likeBtn" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                      </svg></p> 
+                </div>
+                
+            </div>
+            <div class="playerButtons">    
+                <div class=""><i class="fa-solid fa-circle-play playBtn"></i></div>
+                <div class=""><i class="fa-solid fa-circle-pause d-none pauseBtn"></i></div>
+                <div class="nextTrackBtn"><i class="fa-solid fa-forward-step"></i></div>
+                <div class="backTrackBtn"><i class="fa-solid fa-backward-step"></i></div>
+                <div class="repeatBtn"><i class="fa-solid fa-repeat"></i></div>
+                <div class="shuffleBtn"><i class="fa-solid fa-shuffle"></i></div>
+            </div>
+            <div class="progressBarBack">
+                <div class="progressBarFront"></div>
+                <div class="playerTimes">
+                    <div class="elapsedTime">0:00</div>
+                    <div class="remainingTime">0:00</div>
+                </div>
+            </div>
+            <div class="volumeContainer">
+                <i class="fa-solid fa-volume-off"></i>
+                <div class="volumeBarFront"></div>
+            </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="./home-page.js"></script>
+</body>
+</html>

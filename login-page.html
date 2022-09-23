@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="icon" type="image/x-icon" href="./spotify_icon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css"/>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body class="bg-transparent">
+    <div class="container-fluid">
+        <div class="brand-logo d-flex flex-wrap justify-content-center my-3">
+            <img   src="./logo spotify.png" height="50px" alt="spotify">
+            <h3>Spotify</h3> 
+        </div>
+        <hr>
+        <div class="container ">
+            <div class="button">
+            <h6 >To continue, log in to spotify</h6>
+                <button onclick="facebook()" class="facebook-btn btn  ">CONTINUE WITH FACEBOOK</button>
+                <button onclick="apple()" class="apple-btn btn my-2">CONTINUE WITH APPLE</button>
+            </div>
+            <form >
+                <div class=" input form-group">
+                    <input type="email" class="form-control d-block my-3" id="email" aria-describedby="emailHelp" placeholder="Email address or user name">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="psw" placeholder="Password">
+                </div>
+                <div class="label d-flex flex-wrap justify-content-between form-group form-check">
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remeber me</label>
+                    </div>
+                    <button onclick="logIn()" type="button" class="btn ">LOG IN</button>
+                </div>
+            </form>
+            <div class="signUp align-content-center">
+                <h5 class="m-3">Don't have an account?</h5>
+                <button type="button" onclick="signUp()" class="btn">SIGN UP FOR SPOTIFY</button>
+            </div>
+            <hr>
+            <div class="policy">
+                <p>If you click "Log in with you Facebook" and are not Spotify User, you will be registered and you agree to spotify's <span>Terms & Conditions</span> and <span>Privacy Policy</span></p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        
+       /*  function logIn()  {
+            let email = document.querySelector('#email').value
+            let psw = document.querySelector('#psw').value
+
+        //     user_Data = new Array();
+        //     user_Data = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
+            if (user_Data.some((v)=>{return v.email==email && v.psw==psw})) {
+                alert("login success")
+                console.log(hey)
+                let current_user = user_Data.filter((v) => { return v.email == email && v.psw == psw })
+                // localStorage.setItem("name",current-user.name)
+                // localStorage.setItem("email",current-user.name)
+                if(email===""){
+                    alert("please provide an email")
+                }else{
+                    {
+                        alert("login successful")
+                        window.location.href="./home-page.html";
+                    }
+                }
+
+
+                
+            }else
+            {
+                // user_Data.push({
+                //     "email": email,
+                //     "psw": psw
+                // })   
+                // localStorage.setItem("user",JSON.stringify(user_Data))
+                alert("login failed")
+            }
+
+        } */
+    
+        
+
+        function facebook() {
+            window.location.href = "https://www.facebook.com/";  
+        }
+        function apple() {
+            window.location.href = "https://appleid.apple.com/sign-in";  
+        }
+        function signUp()   {
+            window.location.href = "signup.html";  
+        }
+    
+
+
+
+
+
+    </script>
+    <script src="login-page.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</body>
+</html>
