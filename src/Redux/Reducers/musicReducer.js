@@ -1,12 +1,6 @@
-import {PLAY_PAUSE, NEXT_BACK, REPEAT, SONG_DATA} from "../Actions/musicActions"
+import {PLAY_PAUSE, NEXT_BACK, REPEAT, SONG_DATA, FETCH_MUSIC} from "../Actions/musicActions"
+import { initialState } from "../Store/store"
 
-const initialState = {
-    isPlaying:false,
-    songProg:0,
-    currentSong:{},
-    favs:[],
-    currentAlbum:{}    
-};
 
 const musicReducer = (state=initialState, action) =>{
     switch(action.type){
@@ -35,7 +29,11 @@ const musicReducer = (state=initialState, action) =>{
                 ...state,
                 currentSong : action.payload
             }        
-               
+        case FETCH_MUSIC:
+            return{
+                ...state,
+                response: action.payload
+            }
         default:
             return state
     }

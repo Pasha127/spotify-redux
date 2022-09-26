@@ -79,6 +79,7 @@ cursor: pointer;
 .navLimiter{
     flex-shrink: 0;
     width: 230px;
+    color: #ebebeb;
 }
 .sideRec{
     cursor: pointer;
@@ -170,7 +171,7 @@ div.buffer{
   
 .trackbar{
     position: fixed;
-    
+    z-index: 4;
     width: 100vw;
     height: 100px;
     background-color: var(--spotify-light-gray);    
@@ -604,4 +605,48 @@ height: 20px;
 }
 .buttonSelected{
     color: var(--spotify-green)!important;
+}
+.myContainer{
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--spotify-dark-gray);
+}
+.navContainer{
+    background-color: green;
+    position: fixed;
+    display: flex;
+    left: 0px;
+    height: 100vh;
+    z-index: 2;
+    width: 230px;
+
+}
+.mainBody{
+display: flex;
+position: absolute;
+right: 0px;
+width: calc(100vw - 230px);
+}
+.contentBody{
+    justify-content: center;
+    align-items: center;
+    color: #ebebeb;
+}
+.musicContainer{
+
+}
+.card-box{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top:15%;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    border: 4px solid 
+    var(--spotify-light-gray);
+    border-radius: 20px;
+    background-color: var(--spotify-light-gray);
+    overflow: hidden;
 }

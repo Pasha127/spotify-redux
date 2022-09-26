@@ -1,13 +1,5 @@
-import {LOG_IN, LOG_OUT, SIGN_UP} from "../Actions"
-
-const initialState = {
-    activeUser:{
-        id: "",
-        password:""
-    },
-    users: [],    
-};
-
+import {LOG_IN, LOG_OUT, SIGN_UP} from "../Actions/userActions"
+import { initialState } from "../Store/store";
 const userReducer = (state=initialState, action) =>{
     switch(action.type){
         case LOG_IN:

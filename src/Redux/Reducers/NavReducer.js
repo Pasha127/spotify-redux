@@ -1,9 +1,5 @@
 import {SEARCH} from "../Actions/navActions"
-
-const initialState = {
-    query:"",
-    loading: false
-};
+import { initialState } from "../Store/store"
 
 const navReducer = (state=initialState, action) =>{
     switch(action.type){
