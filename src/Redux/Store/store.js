@@ -10,7 +10,7 @@ export const initialState = {
         password:""
     },
     users: []},
-    nav:{query:"",
+    nav:{query:"linkin park",
     loading: false},
     music: 
     {isPlaying:false,

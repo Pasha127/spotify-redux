@@ -6,8 +6,8 @@ import { setFetched } from "../Redux/Actions/musicActions";
 import { useEffect } from 'react'
 const mapStateToProps = state => {
     return {
-      searchQuery: state.nav.query,
-      fetched: state.music.response   
+      searchQuery: state.nav.nav.query,
+      fetched: state.music.music.response   
     };
   };
   const mapDispatchToProps = dispatch => {
@@ -16,17 +16,15 @@ const mapStateToProps = state => {
         dispatch(setQuery(query));
       },
         setF: fetched=>{
+            console.log("dispatch", fetched);
             dispatch(setFetched(fetched))
         }   }
     };
 
 const Home = (props)=>{
     let canMap=false;
-    /* props.setQ("linkin park"); */
+    
     let isLoading=false;
-    useEffect(()=>{
-        loadTracks("Linkin Park")
-    },[])
     const options = {
         method: 'GET',
         headers: {
@@ -36,19 +34,24 @@ const Home = (props)=>{
     };
     
     const loadTracks = async (input) => {isLoading=true;    
-       try{
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${input}`, options);
-        if (response.ok){
-            const {searchData} = await response.json()
-            props.setF(searchData)
-            canMap =true; isLoading = false;
-            searchData? console.log(searchData):console.log("no data")
-        }}
-       catch(err){console.error(err)}
-       
-
-    }
-
+        try{
+            console.log(input)
+            const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${input}`, options);
+            if (response.ok){
+                const {searchData} = await response.json()
+                props.setF(searchData)
+                canMap =true; isLoading = false;
+                
+            }}
+            catch(err){console.error(err)}
+           /*  finally{console.log(props.fetched)} */
+            
+            
+        }
+        useEffect(()=>{
+            loadTracks(props.searchQuery)
+        },[])
+        
         const makeCards =  (n=16) => {          
              props.fetched && (props.fetched.data.map((song,i) => {
                if(i<16){ return(
